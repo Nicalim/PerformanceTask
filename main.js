@@ -16,13 +16,11 @@ async function init() {
     document.body.appendChild(renderer.domElement);
     await renderer.init();
 
-    // --- Camera fixed view ---
     const fixedPosition = new THREE.Vector3(-1.595, 0.379, 2.255);
     const fixedLookAt = new THREE.Vector3(2, -0.2, 0);
     camera.position.copy(fixedPosition);
     camera.lookAt(fixedLookAt);
 
-    // --- Toggle controls ---
     const toggleBtn = document.getElementById("toggleControlsBtn");
     let controls = null;
     let controlsEnabled = false;
@@ -65,7 +63,6 @@ async function init() {
         }
     });
 
-    // --- Learn & Back Buttons ---
     const contentDiv = document.getElementById("content");
     const rightDiv = document.querySelector(".right");
     const learnBtn = document.getElementById("learnBtn");
@@ -144,7 +141,6 @@ async function init() {
         });
     });
 
-    // --- Textures & objects ---
     const loader = new THREE.TextureLoader();
 
     const bgMesh = new THREE.Mesh(
@@ -178,7 +174,6 @@ async function init() {
     );
     scene.add(atmosphere);
 
-    // --- Stars ---
     const starCount = 5000;
     const starPositions = [];
     const starSizes = [];
@@ -205,13 +200,11 @@ async function init() {
     const stars = new THREE.Points(starGeometry, starMaterial);
     scene.add(stars);
 
-    // --- Lights ---
     const sun = new THREE.DirectionalLight(0xffffff, 5);
     sun.position.set(30,10,30);
     scene.add(sun);
     scene.add(new THREE.AmbientLight(0x555555,0.1));
 
-    // --- Animate ---
     let lastLogTime = 0;
     function animate(time){
         requestAnimationFrame(animate);
@@ -238,7 +231,6 @@ async function init() {
     }
     animate();
 
-    // --- Resize ---
     window.addEventListener('resize',()=>{
         camera.aspect = window.innerWidth/window.innerHeight;
         camera.updateProjectionMatrix();
