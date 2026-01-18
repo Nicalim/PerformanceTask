@@ -374,6 +374,7 @@ strong {
   --c-shadow-inset-top: rgba(36, 119, 227, 0.9);
   --c-shadow-inset-bottom: rgba(255, 250, 215, 0.8);
   --c-radial-inner: #154cff;
+  --c-radial-outer: #000000;
   --c-color: #fff;
   -webkit-tap-highlight-color: transparent;
   -webkit-appearance: none;
